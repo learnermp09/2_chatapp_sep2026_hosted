@@ -1,15 +1,32 @@
 import streamlit as st
 import requests
 
-API_URL = "https://two-chatapp-sep2026-hosted.onrender.com"
+BASE_URL = "https://two-chatapp-sep2026-hosted.onrender.com"
 # API_URL = "http://127.0.0.1:8000"
 
 st.title("✨Langserve-based LLM AI Chatbot")
 
-input_text = st.text_input("Enter your question here")
+st.info(
+    """
+    ℹ️ **Backend Wake-Up Notice**
 
-if input_text:
-    response = requests.post(f"{API_URL}/chatgroq/invoke", json={"input": {"question":input_text}})
+    The AI backend is hosted on a cloud service that automatically sleeps during periods
+    of inactivity. The first request may take **30–90 seconds** while the service wakes up.
+
+    Once active, responses are typically generated within a few seconds.
+
+    Thank you for your patience.
+    """
+)
+
+# API Endpoints
+BASE_URL = "https://two-chatapp-sep2026-hosted.onrender.com"
+GROQ_ENDPOINT = f"{BASE_URL}/chatgroq/invoke"
+
+groq_question = st.text_input("Enter your question here")
+
+if groq_question:
+    response = requests.post(GROQ_ENDPOINT, json={"input": {"question":groq_question}})
     if response.status_code == 200:
         # with LangServe's /invoke endpoint, the response is generally wrapped as an output
         answer = response.json().get("output", "No output found")
