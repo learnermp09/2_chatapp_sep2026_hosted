@@ -52,6 +52,6 @@ add_routes(app, chain1.with_types(input_type = Question), path = "/chatgroq")
 
 llm = ChatOpenAI(model = "openai/gpt-oss-120b", temperature = 0)
 
-chain2 = prompt | llm | StrOutputParser
+chain2 = prompt | llm | parser
 
 add_routes(app, chain2.with_types(input_type = Question), path = "/chatopenai")
