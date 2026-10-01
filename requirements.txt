@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+starlette
+streamlit
+requests
+python-dotenv
+
+langchain-core
+langchain-groq
+langserve[all]
+sse-starlette
+
+pytest
+httpx
