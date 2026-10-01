@@ -1,6 +1,7 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import StrOutputParser
 from langserve import add_routes
 
@@ -42,16 +43,24 @@ prompt = ChatPromptTemplate.from_messages([
 parser = StrOutputParser()
 
 # Groq
-llm = ChatGroq(model = "openai/gpt-oss-120b", temperature = 0)
+llm1 = ChatGroq(model = "openai/gpt-oss-120b", temperature = 0.1)
 
-chain1 = prompt | llm | parser
+chain1 = prompt | llm1 | parser
 
 add_routes(app, chain1.with_types(input_type = Question), path = "/chatgroq")
 
 # Open AI
 
-llm = ChatOpenAI(model = "gpt-4o", temperature = 0)
+llm2 = ChatOpenAI(model = "gpt-4o", temperature = 0.1)
 
-chain2 = prompt | llm | parser
+chain2 = prompt | llm2 | parser
 
 add_routes(app, chain2.with_types(input_type = Question), path = "/chatopenai")
+
+# Google AI
+
+llm3 = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature = 0.1)
+
+chain3 = prompt | llm3 |parser
+
+add_routes(app, chain3.with_types(input_type = Question), path = '/chatgeminiai')

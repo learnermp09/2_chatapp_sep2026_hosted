@@ -9,6 +9,7 @@ python-dotenv
 langchain-core
 langchain-groq
 langchain-openai
+langchain_google_genai
 langserve[all]
 sse-starlette
 
