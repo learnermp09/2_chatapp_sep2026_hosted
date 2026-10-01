@@ -19,9 +19,15 @@ st.info(
     """
 )
 
-# API Endpoints
+# API endpoint
 BASE_URL = "https://two-chatapp-sep2026-hosted.onrender.com"
 GROQ_ENDPOINT = f"{BASE_URL}/chatgroq/invoke"
+
+# Groq assistant
+st.image(
+    "https://cdn.sanity.io/images/chol0sk5/production/ce0b2266373b3c9722b0bccb9a98441c26c89696-1200x630.png",
+    width=120
+)
 
 groq_question = st.text_input("Enter your question here")
 
