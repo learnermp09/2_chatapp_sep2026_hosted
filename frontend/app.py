@@ -1,6 +1,8 @@
 import streamlit as st
 import requests
 
+BASE_URL = "https://two-chatapp-sep2026-hosted.onrender.com"
+
 st.title("✨Langserve-based LLM AI Chatbot")
 
 st.info(
@@ -15,9 +17,6 @@ st.info(
     Thank you for your patience.
     """
 )
-
-BASE_URL = "https://two-chatapp-sep2026-hosted.onrender.com"
-# BASE_URL = "http://127.0.0.1:8000"
 
 # Groq assistant
 st.image("https://cdn.sanity.io/images/chol0sk5/production/ce0b2266373b3c9722b0bccb9a98441c26c89696-1200x630.png", width=120)
