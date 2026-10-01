@@ -16,6 +16,13 @@ load_dotenv(BASE_DIR/".env")
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"message": "LLM chatbot API is running"}
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
+
 class Question(BaseModel):
     question: str = Field(
         ...,
@@ -40,6 +47,4 @@ chain = prompt | llm | parser
 
 add_routes(app, chain.with_types(input_type = Question), path = "/chatgroq")
 
-@app.get("/health")
-def health():
-    return {"status": "healthy"}
+
