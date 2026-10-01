@@ -1,5 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langserve import add_routes
 
@@ -37,14 +38,20 @@ prompt = ChatPromptTemplate.from_messages([
     ("user", "Question: {question}")
 ])
 
-# LLM
-llm = ChatGroq(model = "openai/gpt-oss-120b", temperature = 0)
-
 # String parser
 parser = StrOutputParser()
 
-chain = prompt | llm | parser
+# Groq
+llm = ChatGroq(model = "openai/gpt-oss-120b", temperature = 0)
 
-add_routes(app, chain.with_types(input_type = Question), path = "/chatgroq")
+chain1 = prompt | llm | parser
 
+add_routes(app, chain1.with_types(input_type = Question), path = "/chatgroq")
 
+# Open AI
+
+llm = ChatOpenAI(model = "openai/gpt-oss-120b", temperature = 0)
+
+chain2 = prompt | llm | StrOutputParser
+
+add_routes(app, chain2.with_types(input_type = Question), path = "/chatopenai")
