@@ -31,18 +31,18 @@ The backend exposes separate LangServe endpoints for each model provider.
 
 ## Tech Stack
 
-* **Python 3.11** — application runtime
-* **FastAPI** — backend API
-* **LangServe** — exposes LangChain chains as API routes
-* **LangChain** — prompt and model integration
-* **Groq** — `openai/gpt-oss-120b`
-* **OpenAI** — `gpt-4o`
-* **Google Gemini** — `gemini-2.5-flash`
-* **Streamlit** — frontend
-* **Pydantic** — request validation
-* **Pytest** — API testing
-* **GitHub Actions** — CI
-* **Render** — backend hosting
+* **Python 3.11** - application runtime
+* **FastAPI** - backend API
+* **LangServe** - exposes LangChain chains as API routes
+* **LangChain** - prompt and model integration
+* **Groq** - `openai/gpt-oss-120b`
+* **OpenAI** - `gpt-4o`
+* **Google Gemini** - `gemini-2.5-flash`
+* **Streamlit** - frontend
+* **Pydantic** - request validation
+* **Pytest** - API testing
+* **GitHub Actions** - CI
+* **Render** - backend hosting
 
 ## Project Structure
 
