@@ -13,6 +13,8 @@ A Streamlit frontend sends user questions to the backend and displays the genera
 The backend exposes separate LangServe endpoints for each model provider.
 
 ## Application Screenshot
+* url: https://triplechat.streamlit.app/
+
 ![Streamlit application](docs/streamlit-app.png)
 
 ## Features
