@@ -7,7 +7,6 @@ from langserve import add_routes
 
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
-from typing import Annotated
 
 from pathlib import Path
 from dotenv import load_dotenv
